@@ -1,0 +1,1 @@
+Jeżeli chodzi o listę TODO, zrobiłam to na zasadzie że dodaje czynności na dany dzień. Ale najpierw należy podać datę a dopiero póżniej dodawać czynności. Natomiast ich wykonanie rozpoznaje się znaczkiem w polu checkbox.
