@@ -1,0 +1,1 @@
+Je¿eli chodzi o listê TODO, zrobi³am to na zasadzie ¿e dodaje czynnoœci na dany dzieñ. Ale najpierw nale¿y podaæ datê a dopiero pó¿niej dodawaæ czynnoœci. Natomiast ich wykonanie rozpoznaje siê znaczkiem w polu checkbox.
