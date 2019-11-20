@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        position: relative;
+    }                                            
+    .list {
+        padding: 15px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 35px;
+        position: absolute;
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50%, -50%);        /*Cała sekcja*/ 
+        font-family: 'Lato', sans-serif;
+        background-color: rgba(72, 48, 226, 0.6) ;
+        color: black;
+        border-radius: 20px;
+    }
+    .list ul {
+        list-style: none;
+    }
+    input {
+        background-color:beige;
+        border: none;
+        height: 25px;
+    }
+    #text {
+        margin-left: 10px;
+    }
+    #button {
+        margin-left:10px;
+        width: 50px;
+    }
+    .other {
+        display: flex;
+        flex-direction: column;
+        align-items: space-around;
+    }
+    li {
+        position: relative;
+        display: none;
+    }
+    li.display {
+        display: block;
+    }
+    #check {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<body>
+   <section class="list">  <!--CAŁA SEKCJA-->
+       <!--POCZĄTEK, H1 I PIERWSZE 2 POZYCJI-->
+       <div class="title"><h1>Moja Lista TODO:</h1></div>
+         <div class="intro">
+            <div class="date">Dzisiaj jest: <input type="date" id="date"></div>    
+         </div> 
+         <!--KONIEC-->
+         <!--DALEJ IDZIE SAMA LISTA--> 
+        <div class="add">Dodaj<input type="text" name="text" id="text" placeholder="Dodaj czynność"><input type="button" id="button" value="Dodaj">
+        </div>
+        <div class="other">
+            <ul>
+              <li class="first 2019-11-18">Napisać test na CodersCamp<input type="checkbox" name="wake" id = "check"></li>
+              <li class="second 2019-11-19">Wizyta u fryzjera<input type="checkbox" name="breakfast" id = "check"></li>
+              <li class="third 2019-11-20">Pójść na trening<input type="checkbox" name="fit" id = "check"></li>
+              <li class="fourth 2019-11-21">Uczyć się programowania<input type="checkbox" name="it" id = "check"></li>
+              <li class="fifth 2019-11-22">Zrobic zadanie domowe<input type="checkbox" name="homework" id = "check"></li>
+              <li class="sixth 2019-11-23">Pouczyc się hiszpańskiego<input type="checkbox" name="spanish" id = "check"></li>
+              <li class="seventh 2019-11-24">Zrobić gimnastykę<input type="checkbox" name="gym" id = "check"></li>
+            </ul>
+        </div>
+        <!--KONIEC LISTY-->
+       </section>
+   <script>
+       
+       var addAction = document.getElementById('button');
+       
+       addAction.addEventListener('click', function(){
+
+        var textValue = document.getElementById('text').value;
+        console.log(textValue);
+        var newText = document.createTextNode(textValue);
+        var newLi = document.createElement('li');
+        newLi.appendChild(newText);
+        var ul = document.querySelector('ul');
+        
+
+        var newInput = document.createElement('input');
+        newInput.setAttribute('type', 'checkbox');
+        newInput.setAttribute('id', 'check');
+        // newInput.id = 'check'
+        newLi.appendChild(newInput);
+        ul.appendChild(newLi);
+
+
+        var changeDate = document.getElementById('date');
+        newLi.classList.add(changeDate.value)
+        // console.log(changeDate.value);
+        newLi.classList.add('display');
+       })
+
+       /* ZMIANA DATY ORAZ PLANOW */
+       var changeDate = document.getElementById('date');
+       changeDate.addEventListener('change', function(){
+        var allLi = document.querySelectorAll('li');
+           for ( let i = 0; i < allLi.length; i++){
+               allLi[i].classList.remove('display');
+               if (allLi[i].classList.contains(this.value)){
+                   allLi[i].classList.add('display');
+               }
+           }
+           });
+
+   </script>
+</body>
+</html>
